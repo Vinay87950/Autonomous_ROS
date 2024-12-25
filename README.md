@@ -86,4 +86,4 @@ Autonomous robot navigation requires a combination of manual control, environmen
 
 ## Acknowledgments
 
-Special thanks to the professor and course instructors for guiding this project.
+Special thanks to the professor and my team member for guiding and following up for this project.
