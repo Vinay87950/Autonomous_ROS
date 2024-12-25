@@ -20,6 +20,7 @@ This semester project implements a **ROS2-based robotic system** using a Raspber
 3. [Technical Stack](#technical-stack)
 4. [How It Works](#how-it-works)
 5. [Future Improvements](#future-improvements)
+6. [Acknowledgments](#acknowledgments)
 
 ---
 
