@@ -1,4 +1,4 @@
-# ROS2 Automation Project: Autonomous Unmanned Robotic Exploration (AURE)
+# ROS2 Automation Project: Autonomous Driving
 
 ## Project Overview
 This semester project implements a **ROS2-based robotic system** using a Raspberry Pi, demonstrating key capabilities in robot control, mapping, and autonomous navigation. The project showcases the integration of various ROS2 nodes for keyboard control, environment mapping, and path planning.
