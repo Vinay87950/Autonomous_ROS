@@ -1,84 +1,87 @@
-# ROS2 Automation Project: Autonomous ROS2 Exploration 
+# ROS2 Automation Project: Autonomous Unmanned Robotic Exploration (AURE)
 
 ## Project Overview
+This semester project implements a **ROS2-based robotic system** using a Raspberry Pi, demonstrating key capabilities in robot control, mapping, and autonomous navigation. The project showcases the integration of various ROS2 nodes for keyboard control, environment mapping, and path planning.
 
-This semester project focuses on developing a ROS2-based robotic system using a Raspberry Pi, demonstrating key capabilities in robot control, mapping, and autonomous navigation.
+---
 
-## Project Stages
+## Features
+- **Keyboard-controlled robot movement** using ROS2 Twist messages
+- **Real-time environment mapping** with laser scan data and occupancy grid
+- **Autonomous path planning** based on initial pose, goal pose, and map data
+- Modular ROS2 node architecture for each project component
+- Integration with Raspberry Pi for embedded robotics applications
+
+---
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Project Components](#project-components)
+3. [Technical Stack](#technical-stack)
+4. [How It Works](#how-it-works)
+5. [Future Improvements](#future-improvements)
+
+---
+
+## Introduction
+Autonomous robot navigation requires a combination of manual control, environment perception, and intelligent decision-making. This project demonstrates these capabilities using ROS2, implementing nodes for keyboard control, laser-based mapping, and path planning algorithms.
+
+---
+
+## Project Components
 
 ### Task 1: Keyboard Control
-
-#### Objective
-Implement a ROS2 node for manual robot control using keyboard inputs.
-
-#### Key Features
-- Real-time robot movement control
-- Directional commands (forward, backward, left, right)
-- Smooth and intuitive keyboard interface
-
-#### Keyboard Controls
-- `w`: Move forward
-- `s`: Move backward
-- `a`: Turn left
-- `d`: Turn right
-- `q`: Forward-left diagonal movement
-- `e`: Forward-right diagonal movement
-- `z`: Program termination
+- **`keyboard_control_node`**: Translates keyboard inputs into robot movement commands
+- Publishes `Twist` messages for robot motion
+- Supports directional and combined movements
 
 ### Task 2: Environment Mapping
+- **`mapping_node`**: Processes laser scan data to create an occupancy grid map
+- Utilizes Bresenham's algorithm for obstacle mapping
+- Handles coordinate frame transformations
 
-#### Objective
-Create a dynamic occupancy grid map using laser scan data.
+### Task 3: Path Planning
+- **`path_planning_node`**: Generates optimal paths based on start and goal poses
+- Integrates with the occupancy grid map for obstacle avoidance
+- Publishes planned paths for robot navigation
 
-#### Key Components
-- Laser scan data processing
-- Occupancy grid map generation
-- Obstacle detection and mapping
-- Coordinate transformation handling
-
-#### Mapping Techniques
-- Bresenham's line algorithm
-- Laser scan data interpretation
-- Real-time map updates
-
-### Task 3: Autonomous Path Planning
-
-#### Objective
-Develop an intelligent path planning algorithm for autonomous navigation.
-
-#### Key Features
-- Dynamic path generation
-- Obstacle avoidance
-- Efficient route calculation
-
-#### Navigation Components
-- Initial pose subscription
-- Goal pose identification
-- Occupancy grid map integration
-- Path optimization algorithms
+---
 
 ## Technical Stack
+- **ROS2 (Robot Operating System)**
+- **Raspberry Pi** for embedded computing
+- **Python** for node implementation
+- **Laser scanning sensors** for environment perception
+- **Twist message communication** for robot control
 
-- ROS2 (Robot Operating System)
-- Raspberry Pi
-- Python
-- Laser scanning sensors
-- Twist message communication
+---
 
-## Project Challenges
+## How It Works
 
-1. Implementing real-time robot control
-2. Accurate environment mapping
-3. Efficient path planning algorithms
-4. Sensor data integration
-5. Coordinate frame transformations
+### Keyboard Control:
+- Listens for keyboard inputs
+- Translates inputs to `geometry_msgs/Twist` messages
+- Publishes messages to `/cmd_vel` topic for robot movement
+
+### Mapping:
+- Subscribes to `/scan` topic for laser data
+- Processes scans using Bresenham's line algorithm
+- Updates and publishes occupancy grid to `/map` topic
+
+### Path Planning:
+- Subscribes to `/initialpose`, `/goal_pose`, and `/map` topics
+- Implements path planning algorithm (e.g., A*, RRT)
+- Publishes planned path to `/planned_path` topic
+
+---
 
 ## Future Improvements
+- Implement SLAM (Simultaneous Localization and Mapping) for improved mapping
+- Integrate computer vision for object recognition
+- Develop multi-robot coordination capabilities
+- Enhance path planning with machine learning algorithms
 
-- Advanced machine learning path planning
-- Enhanced obstacle detection
-- Multi-robot coordination
-- Improved mapping resolution
+---
 
 ## Acknowledgments
 
